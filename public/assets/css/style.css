@@ -206,7 +206,7 @@ body {
 .memorial-message {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--gray-color);
+  color: #000;
 }
 
 /* ==================== FORMULÁRIOS ==================== */
