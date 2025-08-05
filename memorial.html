@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags - SERÃO DINÂMICAS -->
+    <!-- DADO DINÂMICO: nomePessoa no title -->
+    <title>Memorial de [NOME] - Vida em Memória</title>
+    <!-- DADO DINÂMICO: nomePessoa e resumo na description -->
+    <meta name="description" content="Memorial online de [NOME]. Preserve memórias e homenageie uma vida especial.">
+    
+    <!-- Open Graph Tags - SERÃO DINÂMICAS -->
+    <!-- DADO DINÂMICO: nomePessoa -->
+    <meta property="og:title" content="Memorial de [NOME]">
+    <!-- DADO DINÂMICO: foto da pessoa -->
+    <meta property="og:image" content="/assets/uploads/fotos/[FOTO_PESSOA]">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/public/assets/css/style.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="memorial-page">
+    
+    <!-- Audio Background (será controlada via JS) -->
+    <!-- DADO DINÂMICO: trilhaSonora -->
+    <audio id="backgroundMusic" loop>
+        <source src="/assets/uploads/musicas/[TRILHA_SONORA]" type="audio/mpeg">
+    </audio>
+
+    <!-- Header Simples -->
+    <header class="py-3 bg-white shadow-sm">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="/" class="btn btn-outline-secondary">← Voltar ao Início</a>
+                
+                <!-- Controles de Audio -->
+                <div class="d-flex gap-2">
+                    <button id="playPauseBtn" class="btn btn-sm btn-outline-primary" title="Tocar/Pausar música">
+                        🔊
+                    </button>
+                    <button id="shareBtn" class="btn btn-sm btn-primary" title="Compartilhar memorial">
+                        Compartilhar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="memorial-content">
+        
+        <!-- Hero do Memorial -->
+        <section class="memorial-hero py-5 text-white text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+                        <!-- DADO DINÂMICO: fotoMemorial -->
+                        <img src="/assets/uploads/fotos/[FOTO_MEMORIAL]" 
+                             alt="Foto de [NOME_PESSOA]" 
+                             class="memorial-photo rounded-circle shadow-lg mb-4"
+                             width="200" height="200"
+                             style="object-fit: cover; border: 5px solid rgba(255,255,255,0.3);">
+                        
+                        <!-- DADO DINÂMICO: nomePessoa -->
+                        <h1 class="display-4 fw-bold mb-3">[NOME_PESSOA]</h1>
+                        
+                        <!-- DADO DINÂMICO: dataNascimento e dataFalecimento -->
+                        <p class="lead mb-0 opacity-90">[DATA_NASCIMENTO] - [DATA_FALECIMENTO]</p>
+                        
+                        <div class="mt-4">
+                            <span class="badge bg-light text-dark px-3 py-2 fs-6">Em Memória</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conteúdo do Memorial -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+                        <!-- Mensagem Personalizada -->
+                        <div class="card border-0 shadow-sm mb-5">
+                            <div class="card-body p-5">
+                                <h3 class="fw-bold mb-4 text-center">Uma Vida Especial</h3>
+                                
+                                <!-- DADO DINÂMICO: mensagemPersonalizada -->
+                                <div class="memorial-message">
+                                    <p class="lead text-muted lh-lg">
+                                        [MENSAGEM_PERSONALIZADA]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vídeo do YouTube (se existir) -->
+                        <!-- DADO DINÂMICO: videoYoutube -->
+                        <div class="card border-0 shadow-sm mb-5" id="videoSection">
+                            <div class="card-body p-0">
+                                <div class="ratio ratio-16x9">
+                                    <!-- DADO DINÂMICO: embedYoutube -->
+                                    <iframe src="[EMBED_YOUTUBE]" 
+                                            title="Vídeo em memória"
+                                            allowfullscreen
+                                            loading="lazy">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seção de Compartilhamento -->
+                        <div class="text-center py-4">
+                            <h4 class="fw-semibold mb-4">Compartilhe esta Memória</h4>
+                            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                                <button class="btn btn-outline-primary" onclick="compartilharWhatsApp()">
+                                    📱 WhatsApp
+                                </button>
+                                <button class="btn btn-outline-info" onclick="compartilharFacebook()">
+                                    📘 Facebook
+                                </button>
+                                <button class="btn btn-outline-success" onclick="copiarLink()">
+                                    🔗 Copiar Link
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Simples -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="text-muted mb-2">
+                <!-- DADO DINÂMICO: nomePessoa -->
+                Memorial criado com amor para [NOME_PESSOA]
+            </p>
+            <small class="text-muted">
+                Vida em Memória - Preservando lembranças especiais
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/public/assets/js/main.js"></script>
+    
+    <!-- Memorial Specific JS -->
+    <script>
+        // DADOS DINÂMICOS SERÃO INJETADOS AQUI PELO BACKEND
+        const memorialData = {
+            // nomePessoa: '[NOME_PESSOA]',
+            // trilhaSonora: '[TRILHA_SONORA]',
+            // etc...
+        };
+    </script>
+</body>
+</html>

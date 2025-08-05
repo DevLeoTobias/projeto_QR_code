@@ -1,0 +1,396 @@
+/*
+====================================
+VIDA EM MEMÓRIA - ESTILOS PERSONALIZADOS
+====================================
+Autor: [Seu Nome]
+Versão: 1.0
+Descrição: Estilos para aplicação de memoriais online
+*/
+
+/* ==================== IMPORTAÇÕES ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ==================== VARIÁVEIS GLOBAIS ==================== */
+:root {
+  /* Cores Principais */
+  --primary-color: #4f46e5;
+  --primary-dark: #3730a3;
+  --primary-light: #a5b4fc;
+  
+  /* Cores Neutras */
+  --dark-color: #1f2937;
+  --gray-color: #6b7280;
+  --light-gray: #f3f4f6;
+  --white: #ffffff;
+  
+  /* Cores de Estado */
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --info-color: #3b82f6;
+  
+  /* Tipografia */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-base: 1rem;
+  --line-height-base: 1.6;
+  
+  /* Espaçamentos */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Bordas */
+  --border-radius: 0.5rem;
+  --border-radius-lg: 1rem;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== RESET E BASE ==================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--dark-color);
+  background-color: var(--white);
+}
+
+/* ==================== COMPONENTES GLOBAIS ==================== */
+
+/* Botões Personalizados */
+.btn {
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease-in-out;
+  border: none;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #312e81 100%);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline-primary {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: transparent;
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+/* Cards Personalizados */
+.card {
+  border-radius: var(--border-radius-lg);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Forms Melhorados */
+.form-control {
+  border-radius: var(--border-radius);
+  border: 2px solid #e5e7eb;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+}
+
+/* ==================== SEÇÕES ESPECÍFICAS ==================== */
+
+/* Header */
+.navbar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.navbar-brand {
+  font-weight: 600;
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-section h1 {
+  color: var(--dark-color);
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero-section .text-primary {
+  color: var(--primary-color) !important;
+}
+
+/* ==================== PÁGINAS ESPECÍFICAS ==================== */
+
+/* Página do Memorial */
+.memorial-page {
+  background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+}
+
+.memorial-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.memorial-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.memorial-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.memorial-photo {
+  border: 6px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.memorial-photo:hover {
+  transform: scale(1.05);
+}
+
+.memorial-message {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--gray-color);
+}
+
+/* ==================== FORMULÁRIOS ==================== */
+
+/* Preview de Imagem */
+#fotoPreview img {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  border: 3px solid var(--light-gray);
+}
+
+/* Validação de Formulário */
+.is-invalid {
+  border-color: var(--danger-color) !important;
+}
+
+.is-valid {
+  border-color: var(--success-color) !important;
+}
+
+.invalid-feedback {
+  color: var(--danger-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* ==================== UTILITÁRIOS ==================== */
+
+/* Espaçamentos */
+.min-vh-75 {
+  min-height: 75vh;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Loading Spinner */
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+
+/* Mobile First - Ajustes para telas pequenas */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 60vh;
+    text-align: center;
+  }
+  
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .memorial-photo {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  .btn-lg {
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .card-body.p-5 {
+    padding: 2rem !important;
+  }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .hero-section {
+    min-height: 85vh;
+  }
+}
+
+/* ==================== ACESSIBILIDADE ==================== */
+
+/* Melhor contraste para elementos focáveis */
+.btn:focus,
+.form-control:focus,
+.nav-link:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Reduzir movimento para usuários sensíveis */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Alto contraste para melhor legibilidade */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #000080;
+    --dark-color: #000000;
+    --gray-color: #404040;
+  }
+}
+
+/* ==================== ESTADOS DE HOVER E INTERAÇÃO ==================== */
+
+/* Links */
+a:not(.btn) {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:not(.btn):hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Imagens */
+img {
+  transition: all 0.3s ease;
+}
+
+/* Cards interativos */
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ==================== IMPRESSÃO ==================== */
+@media print {
+  .navbar,
+  .btn,
+  footer {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  .memorial-hero {
+    background: none !important;
+    color: black !important;
+  }
+}
+
+/* ==================== TEMA ESCURO (FUTURO) ==================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dark-color: #f9fafb;
+    --gray-color: #d1d5db;
+    --light-gray: #374151;
+    --white: #1f2937;
+  }
+  
+  body {
+    background-color: var(--white);
+    color: var(--dark-color);
+  }
+}
